@@ -1,0 +1,21 @@
+-- 오로지 숫자만 찾는 정규식
+SELECT 'OK' AS OK
+FROM DUAL
+WHERE 1=1
+AND EXISTS (
+	SELECT 1
+	FROM DUAL
+	WHERE 1=1
+	AND REGEXP_LIKE('1A', '^(0|[1-9]+[0-9]*)$')
+);
+
+-- 끝자리가 숫자3개로 끝나는 거
+SELECT 'OK' AS OK
+FROM DUAL
+WHERE 1=1
+AND EXISTS (
+	SELECT 1
+	FROM DUAL
+	WHERE 1=1
+	AND REGEXP_LIKE('A012', '^*([0-9]){3}$') 
+)
