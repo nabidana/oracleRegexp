@@ -19,3 +19,37 @@ AND EXISTS (
 	WHERE 1=1
 	AND REGEXP_LIKE('A012', '^*([0-9]){3}$') 
 )
+
+
+-- 전화번호 정규식
+SELECT 'OK' AS OK
+FROM DUAL
+WHERE 1=1
+AND EXISTS (
+	SELECT 1
+	FROM DUAL
+	WHERE 1=1
+	AND REGEXP_LIKE('010-123-1234', '^\d{3}-\d{3,4}-\d{4}$') 
+);
+
+-- 이메일 정규식
+SELECT 'OK' AS OK
+FROM DUAL
+WHERE 1=1
+AND EXISTS (
+	SELECT 1
+	FROM DUAL
+	WHERE 1=1
+	AND REGEXP_LIKE('a!a@a.com', '^[a-z0-9!^&*]*@[a-z].[a-z]{3}$')
+);
+
+-- 비밀번호 예시 정규식 ( 문자+숫자 6~12자리 )
+SELECT 'OK' AS OK
+FROM DUAL
+WHERE 1=1
+AND EXISTS (
+	SELECT 1
+	FROM DUAL
+	WHERE 1=1
+	AND REGEXP_LIKE('A012adz2', '^\w{6,8}$') 
+);
